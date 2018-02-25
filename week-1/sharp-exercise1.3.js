@@ -1,7 +1,3 @@
-console.log(header.display("Robert", "Sharp", "Excercise 1.3"));
-console.log("\n");
-//referenced header.js file above
-
 var url = require('url');
 
 var parsedURL = url.parse('https://www.123example.org/profile?name=sharp');
