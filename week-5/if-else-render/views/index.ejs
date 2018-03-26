@@ -23,8 +23,9 @@
         <br/><br/>
     
         <h2>Name List</h2>
-        
+        <!-- if statement checks for the length of 'names'-->
         <% if(names.length > 0) { %>
+            <!-- for loop that iterates over the 'names' array -->
             <% for (var x = 0; x < names.length; x++) { %>
                 <div class="alert alert-success"><strong><%= names[x] %></strong></div>
             <% } %>
