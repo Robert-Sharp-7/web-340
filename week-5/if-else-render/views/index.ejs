@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Exercise 5.2: If-Else-Render</title>
+
+
+<!--
+============================================
+; Title: index.ejs file for assignment 5.2
+; Author: Professor Krasso
+; Date: 25 March 2017
+; Modified By: Robert Sharp
+; Description: This program demonstrates the
+; use of templating strings using EJS
+;===========================================
+-->
+</head>
+<body>
+
+<div class="container">
+
+        <br/><br/>
+    
+        <h2>Name List</h2>
+        
+        <% if(names.length > 0) { %>
+            <% for (var x = 0; x < names.length; x++) { %>
+                <div class="alert alert-success"><strong><%= names[x] %></strong></div>
+            <% } %>
+        <% } %>
+</div>
+
+    
+</body>
+</html>
