@@ -5,6 +5,14 @@ var logger = require("morgan");
 
 var app = express();
 
+// defines the employee model
+var Employee = mongoose.model("Employee", employeeSchema);
+
+var mongoDB = "mongodb://robert.sharp:password@ds159180.mlab.com:59180/ems"
+//Mongo databse connection string
+//utilizes my username: robert.sharp
+//and password: password
+
 app.set("views", path.resolve(__dirname, "views"));
 //this says that the views are in the views directory
 
