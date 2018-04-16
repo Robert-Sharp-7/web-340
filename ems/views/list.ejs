@@ -1,21 +1,60 @@
-<ul class="navbar-nav">
+<!DOCTYPE html>
+<!--Author: Professor Krasso
+    Modified by: Robert Sharp-->
 
-    <li class="nav-item active">
+<html lang="en">
 
-        nav-link" href="#">Home
+<% include header %>
 
-    li>
+<body>
 
-    <li class="nav-item">
+<% include navbar %>
 
-        nav-link" href="#">About
+<div role="main" class="container" style="width: 50%;">
+    
+    <br/><br/>
 
-    li>
+    <% if (entry.length) { %>
 
-    <li class="nav-item">
+    <h2>-- Data Listing --</h2><br />
+    
+    <a href="/new">Add New Data Entry</a>
+    
+    <table class="table table-hover">
+        
+        <thead class="thead-dark">
+        
+            <tr>
+                <th>Name</th>
+                <th>Functions</th>
+            </tr>
+        
+        </thead>
+        <!--entry data table-->
+        <tbody>
+            <% entry.forEach(function (entry) { %>
+        
+            <tr>
+                <td><%= entry.name %></td>
+                <td><a href="/view/<%= entry.name %>">VIEW</a></td>
+            </tr>
 
-        nav-link" href="#">Contact Us
+        </tbody>
+        
+        <% }) %>
 
-    li>
+    </table>
+    
+    <% } else { %>
+    
+        There's nothing here! <a href="/new">Add something!</a>
+    
+    <% } %>
 
-ul>
+    <br/>
+</div>
+
+<% include scripts %>
+
+</body>
+</html>
