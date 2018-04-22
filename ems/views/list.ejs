@@ -14,10 +14,12 @@
     
     <br/><br/>
 
-    <% if (entry.length) { %>
+    <% if (entries.length) { %>
 
-    <h2>-- Data Listing --</h2><br />
-    
+    <h2>-- Entry Listing --</h2><br />
+
+    <!--Adding a link to the view page here-->
+    <a href="/view">Here is the View Page</a>
     <a href="/new">Add New Data Entry</a>
     
     <table class="table table-hover">
@@ -32,11 +34,11 @@
         </thead>
         <!--entry data table-->
         <tbody>
-            <% entry.forEach(function (entry) { %>
+            <% entries.forEach(function (entry) { %>
         
             <tr>
                 <td><%= entry.name %></td>
-                <td><a href="/view/<%= entry.name %>">VIEW</a></td>
+                <td><a href="/view/ <%= entry.name %>">VIEW</a></td>
             </tr>
 
         </tbody>
@@ -52,6 +54,7 @@
     <% } %>
 
     <br/>
+
 </div>
 
 <% include scripts %>

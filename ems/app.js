@@ -43,6 +43,9 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 //this tells the application to view it using ejs
 
+//application's port variable
+app.set("port", process.env.PORT || 8080);
+
 //use statements
 app.use(logger("short"));
 app.use(helmet.xssFilter());
@@ -72,12 +75,12 @@ app.get("/new", function (request, response){
 })
 
 app.get("/list", function(request, response){
-    entry.find({}, function(error, fruits){
+    entry.find({}, function(error, entries){
         if(error) throw error;
 
         response.render("list", {
             title: "Entry List",
-            data: entries
+            entry: entries
         });
     });
 });
@@ -89,7 +92,7 @@ app.post("/process", function(request, response){
 //the get function has the parameters of request and response,
 //and the response is to render the index page with the title of "HOME PAGE"
 
-http.createServer(app).listen(8080, function(){
-    console.log("Application created and listening on port 8080!");
-});
+//modified the createServer function
+http.createServer(app).listen(app.get("port"), function(){
+    console.log("Application started on port" + app.get("port")) });
 //this creates the server on the specified port, and logs the confirmation message to the console

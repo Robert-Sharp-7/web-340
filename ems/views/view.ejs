@@ -9,14 +9,51 @@
 
 <% include navbar %>
 
+
+<script>
+    //this is my Mongoose Find One Example
+    app.get("/view/:queryName", function (request, response){
+            
+        var queryName = request.params.queryName;
+    
+        entry.find({'name': queryName}, function(error, entries){
+                
+            if(error) throw error;
+    
+            console.log(entries);
+    
+            if(entries.length > 0) {
+    
+                response.render("view", {
+    
+                    title: "Entry Record",
+    
+                    entry: entries
+    
+                })
+    
+            }
+    
+            else {
+    
+                response.redirect("/list")
+    
+            }
+    
+        });
+    
+    });
+</script>
+
 <div role="main" class="container" style="width: 50%;">
     <br/><br/>
 
-    <h2>-- Data Record --</h2>
+    <h2>-- Entry Record --</h2>
+
     <div>
         <div class="form-group">
             <label for="txtName">Name:</label>
-            <input type="text" class="form-control" id="txtName" readonly value="<%= entry[0].name %>" name="txtName" />
+            <input type="text" class="form-control" id="txtName" readonly value="<%= entries[0].name %>" name="txtName" />
         </div>
     </div>
 
@@ -26,6 +63,8 @@
 </div>
 
 <% include scripts %>
+
+
 
 </body>
 </html>
